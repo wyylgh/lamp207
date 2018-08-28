@@ -2,11 +2,57 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
 use DB;
+use Illuminate\Http\Request;
 
 class DBController extends Controller
 {
+    /**
+     * 模型
+     */
+    public function model()
+    {
+        // $user = new User;
+        // //设置成员属性
+        // $user -> name = 'admin';
+        // $user -> password = 'admin';
+        // $user -> email = 'abc@qq.com';
+        // //添加记录
+        // $user -> save();
+
+        //获取对象
+        // $user = User::find(1);
+
+        //更新
+        // $user -> name = '123456789';
+        // $user -> save();
+
+        //删除
+        // $user -> delete();
+
+        $user = User::find(1);
+
+        //一对一关系
+        //获取详细信息
+        //获取用户名
+        // $name = $user->name;
+        //获取性别
+        // $sex  = $user->userinfo->name;
+        // $info = $user->userinfo;
+        // dd($sex);
+
+        //一对多关系
+        // $news = $user->news;
+
+        //属于关系
+        // $group = $user->group->name;
+
+        //多对多关系  用户和课程的关系
+
+        dd($group);
+    }
+
     /**
      * 查询
      */
@@ -57,4 +103,6 @@ class DBController extends Controller
 
         dd($res);
     }
+
+    
 }

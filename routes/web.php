@@ -116,3 +116,4 @@ Route::get('/trans', 'DBController@trans');
 Route::get('/join', 'DBController@join');
 
 
+Route::get('/model', 'DBController@model');

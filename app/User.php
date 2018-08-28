@@ -26,4 +26,28 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 一对一关系
+     */
+    public function userinfo()
+    {
+        return $this->hasOne('App\Userinfo');
+    }
+
+    /**
+     * 一对多
+     */
+    public function news()
+    {
+        return $this->hasMany('App\News');
+    }
+
+    /**
+     * 属于关系
+     */
+    public function group()
+    {
+        return $this->belongsTo('App\Group');
+    }
 }

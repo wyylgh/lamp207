@@ -348,5 +348,70 @@ public function boot()
 .
 ```
 
+## 数据填充三步骤
+1. 创建注入器类文件, 并编写
+```
+php artisan make:seeder NameSeeder
+```
+
+2. 配置
+database/seeds/DatabaseSeeder.php 配置
+```
+$this->call([
+    NameSeeder::class,
+]);
+```
+
+3. 运行命令
+```
+php artisan db:seed
+php artisan db:seed --class=BanKuaiTableSeeder
+```
+
 ## composer install 安装过程过程报错, 可以尝试删除 composer.lock 文件
 
+
+## 关于模型
+一个类对应一张表
+一个对象对应一条记录
+
+User 类 对应的是 users 表
+Tiezi 类对应的是 tiezis 表
+
+$user = new User;
+
+## 模型创建
+```
+php artisan make:model Comment -m
+```
+
+## 约定
+1. 类名单数, 表名复数.
+```
+User   users
+Tiezi  tiezis
+```
+
+2. 表都有主键 而且名字叫  id
+```
+$table->increments('id');
+```
+
+3. 每一个表都有时间戳字段. created_at   updated_at
+```
+$table->timestamps();
+```
+
+
+## 外键命名格式
+```
+主表单数_id
+```
+
+$user = [
+    username => 'admin',
+    password => 'admin',
+    userinfo => [
+        'username' => 'iloveyou'
+    ]
+]

@@ -348,4 +348,5 @@ public function boot()
 .
 ```
 
+## composer install 安装过程过程报错, 可以尝试删除 composer.lock 文件
 
